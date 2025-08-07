@@ -3,7 +3,7 @@
 import axios from 'axios';
 
 // CHANGED: Use the environment variable for your deployed Render backend URL
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000/api';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000/api'; 
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -11,7 +11,6 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  // REMOVED: The static Authorization header was the source of the error.
 });
 
 // NEW: Use a request interceptor to dynamically add the auth token.
