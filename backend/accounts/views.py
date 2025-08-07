@@ -20,7 +20,6 @@ class LoginView(generics.GenericAPIView):
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        
         # CHANGED: Extract the 'user' object from the validated_data dictionary
         user = serializer.validated_data['user']
         
@@ -51,7 +50,6 @@ class CurrentUserView(generics.RetrieveAPIView):
 
 class UserProfileView(generics.RetrieveAPIView):
     queryset = CustomUser.objects.all()
-    # Use the UserProfileSerializer to include the post count
-    serializer_class = UserProfileSerializer 
+    serializer_class = UserProfileSerializer    # Use the UserProfileSerializer to include the post count
     lookup_field = 'username'
     permission_classes = [IsAuthenticated]
