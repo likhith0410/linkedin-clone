@@ -6,8 +6,7 @@ from .views import RegisterView, LoginView, LogoutView, CurrentUserView, UserPro
 urlpatterns = [
     path('register/', RegisterView.as_view(), name='register'),
     path('login/', LoginView.as_view(), name='login'),
-    # CHANGED: Point the logout URL to your new LogoutView
-    path('logout/', LogoutView.as_view(), name='logout'),
+    path('logout/', LogoutView.as_view(), name='logout'),     # CHANGED: Point the logout URL to your new LogoutView
     path('me/', CurrentUserView.as_view(), name='me'),
     path('profile/<str:username>/', UserProfileView.as_view(), name='profile'),
 ]
